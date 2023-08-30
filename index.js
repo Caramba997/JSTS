@@ -3,6 +3,7 @@
 const chalk = require('chalk');
 const { Table } = require('console-table-printer');
 const fs = require('fs');
+const path = require('path');
 const Metrics = require('./metrics.js');
 const appRoot = require('app-root-path');
 const calcScores = require('./scores.js');
@@ -83,7 +84,7 @@ function printScores(scores) {
   });
   scoreTable.printTable();
   if (!getCliArg('--metrics')) return;
-  const data = JSON.parse(fs.readFileSync('./data.json'));
+  const data = JSON.parse(fs.readFileSync(path.resolve(__dirname, './data.json')));
   for (let i = 0; i < data.metrics.length; i += 10) {
     const currentMetrics = data.metrics.slice(i, Math.min(i + 10, data.metrics.length));
     const metricTable = new Table({
@@ -108,7 +109,7 @@ function printScores(scores) {
 
   if (getCliArg('--version')) {
     try {
-      const packageJson = JSON.parse(fs.readFileSync('./package.json'));
+      const packageJson = JSON.parse(fs.readFileSync(path.resolve(__dirname, './package.json')));
       log(chalk.yellow(`JSTS v${packageJson.version}`));
     }
     catch(e) {
@@ -145,6 +146,6 @@ function printScores(scores) {
     return;
   }
 
-  log(chalk.red(`Arguments expected. Run ${chalk.bgWhite.black('jsts --help')} for more info`));
+  log(chalk.red(`Arguments expected. Run ${chalk.cyan('jsts --help')} for more info`));
 
 })();

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 function calcRank(allValues, value) {
   const index = allValues.indexOf(value);
@@ -11,7 +12,7 @@ function calcRank(allValues, value) {
 
 function calcScores(metrics) {
   // Read static metric data
-  const data = JSON.parse(fs.readFileSync('./data.json'));
+  const data = JSON.parse(fs.readFileSync(path.resolve(__dirname, './data.json')));
   const relevantMetrics = new Set(data.metrics);
   const ranks = data.values;
   const moduleRanks = data.moduleRanks;
