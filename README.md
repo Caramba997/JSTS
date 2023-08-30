@@ -13,27 +13,27 @@ npm i js-testability-score
 ## Usage
 Verify the installation by running the following command in your project directory
 ```
-jsts --version
+npx jsts --version
 ```
 To get help run
 ```
-jsts --help
+npx jsts --help
 ```
 The tool expects a path to a directory in which it should search for files to analyze. The path can be relative to your project directory or absolute.
 
 Example of a relative path
 ```
-jsts dir/subdir
+npx jsts dir/subdir
 ```
 
 Example of an absolute path
 ```
-jsts C:/dir/project
+npx jsts C:/dir/project
 ```
 
 To scan your whole project directory, use
 ```
-jsts /
+npx jsts /
 ```
 
 By default, the console output only contains scores for the analyzed files. You can additionally output scores for the computed metrics and their actual values by adding `--metrics`. Make sure your console's width is sufficient to display the data.

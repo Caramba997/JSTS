@@ -23,7 +23,6 @@ function scores(dir) {
     metrics = Metrics.calcForDir(dir);
   }
   catch(e) {
-    log(e);
     log(chalk.red('Illegal path'));
     return;
   }
@@ -37,12 +36,12 @@ function scores(dir) {
     printScores(scores);
   }
   catch(e) {
-    log(e);
     log(chalk.red('Score calculation failed'));
   }
 }
 
 function findBasePath(scores) {
+  if (scores.length === 1) return '';
   return scores.reduce((prev, curr) => {
     let sim = '';
     for (let i = 0; i < prev.length && i < curr.file.length; i++) {
