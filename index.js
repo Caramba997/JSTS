@@ -119,14 +119,14 @@ function printScores(scores) {
   
   if (getCliArg('--help')) {
     log(chalk.yellow.bold.underline(`JSTS CLI help`));
-    log(chalk.yellow(`${chalk.cyan('jsts --version')}: Print version`));
+    log(chalk.yellow(`${chalk.cyan('npx jsts --version')}: Print version`));
     log(chalk.yellow('To calc testability scores for files in a directory, provide a path to a directory as the first argument.'));
-    log(chalk.yellow(`If you installed JSTS in you project and want to scan it, just execute ${chalk.cyan('jsts /')}.`));
-    log(chalk.yellow(`If you installed JSTS in you project and want to scan a subdirectory, use the relative path (example: ${chalk.cyan('jsts dir/subdir')}).`));
-    log(chalk.yellow(`You can also use an absolute path (example: ${chalk.cyan('jsts C:/dir/project')}).`));
+    log(chalk.yellow(`If you installed JSTS in you project and want to scan it, just execute ${chalk.cyan('npx jsts /')}.`));
+    log(chalk.yellow(`If you installed JSTS in you project and want to scan a subdirectory, use the relative path (example: ${chalk.cyan('npx jsts dir/subdir')}).`));
+    log(chalk.yellow(`You can also use an absolute path (example: ${chalk.cyan('npx jsts C:/dir/project')}).`));
     log(chalk.yellow('Per default, the output contains only the calculated scores (0 - 100) for each file.'));
     log(chalk.yellow('A higher score means better testability.'));
-    log(chalk.yellow(`If you want to get more details, you can also output all metric scores and their actual values by adding ${chalk.cyan('--metrics')}`));
+    log(chalk.yellow(`If you want to get more details, you can also output all metric scores and their actual values by adding ${chalk.cyan('--metrics')}.`));
     return;
   }
 
